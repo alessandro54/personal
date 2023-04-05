@@ -4,4 +4,6 @@
 </script>
 
 <Nav />
-<slot />
+<main class="p-2">
+	<slot />
+</main>

@@ -19,8 +19,8 @@
 	};
 </script>
 
-<nav class="bg-gray-800">
-	<div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+<nav class="bg-white dark:bg-gray-800 border border-b-gray-300">
+	<div class="mx-auto w-full px-2 sm:px-6 lg:px-8">
 		<div class="relative flex h-16 items-center justify-between">
 			<div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
 				<!-- Mobile menu button-->
@@ -43,7 +43,7 @@
 			</div>
 			<div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
 				<div class="flex flex-shrink-0 items-center">
-					<div class="block h-8 lg:hidden cursor-pointer">
+					<div class="block h-8 cursor-pointer">
 						<Canvas size={{ width: 30, height: 30 }}>
 							<Logo />
 						</Canvas>
@@ -56,7 +56,7 @@
 								href={button.to}
 								class={isActive(button.to)
 									? 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium'
-									: 'text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'}
+									: 'text-black dark:text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'}
 								aria-current="page">{button.label}</a
 							>
 						{/each}
