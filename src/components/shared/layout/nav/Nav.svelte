@@ -19,7 +19,7 @@
 	};
 </script>
 
-<nav class="bg-white dark:bg-gray-800 border border-b-gray-300">
+<nav class="bg-white dark:bg-gray-800 border-b border-gray-300 dark:border-gray-800">
 	<div class="mx-auto w-full px-2 sm:px-6 lg:px-8">
 		<div class="relative flex h-16 items-center justify-between">
 			<div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
