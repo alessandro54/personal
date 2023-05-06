@@ -28,8 +28,24 @@ const Company = defineType({
       type: 'reference',
       to: [{ type: 'location' }],
       validation: Rule => Rule.required(),
+    }),
+    defineField({
+      title: 'Logo',
+      name: 'logo',
+      type: 'image',
+      description: 'Logo of the company',
+      options: {
+        accept: '.png'
+      },
     })
-  ]
+  ],
+  preview: {
+    select: {
+      title: 'name',
+      subtitle: 'location.city',
+      media: 'logo',
+    }
+  }
 })
 
 export default Company;

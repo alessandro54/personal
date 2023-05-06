@@ -43,7 +43,14 @@ const Project = defineType({
       type: 'url',
       description: 'URL of the project',
       hidden: ({ document }) => !document?.personal,
-    })
+    }),
+		defineField({
+			title: 'Repository',
+			name: 'repository',
+			type: 'url',
+			description: 'Repository of the project',
+			hidden: ({ document }) => !document?.personal,
+		})
 	]
 });
 

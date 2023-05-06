@@ -1,11 +1,12 @@
 import { defineConfig } from 'sanity';
 import { deskTool } from 'sanity/desk';
 import { schemaTypes } from './src/schemas/index';
+import { sanityId, sanityDataset } from './src/config/environment';
 
 const config = defineConfig({
 	name: 'portfolio',
-	projectId: 'e78mn16t',
-	dataset: 'development',
+	projectId: sanityId,
+	dataset: sanityDataset,
 	plugins: [
 		deskTool({
 			structure: (S) =>

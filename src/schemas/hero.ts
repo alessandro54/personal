@@ -42,6 +42,16 @@ const Hero = defineType({
 				accept: '.jpg,.jpeg,.png'
 			},
 			validation: (Rule) => Rule.required()
+		}),
+		defineField({
+			title: 'Email',
+			name: 'email',
+			type: 'email',
+			description: 'Email of the hero',
+			validation: (Rule) => [
+				Rule.required(),
+				Rule.email().error('Please enter a valid email address')
+			]
 		})
 	]
 });
