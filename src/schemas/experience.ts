@@ -79,14 +79,7 @@ const Experience = defineType({
 		select: {
 			title: 'name',
 			subtitle: 'company.name',
-			company: 'company'
-		},
-		prepare({ title, company}) {
-			return {
-				title: title,
-				subtitle: company?.name,
-				media: company.location.flag
-			}
+			media: 'technologies.0.logo'
 		}
 	}
 });

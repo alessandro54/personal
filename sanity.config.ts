@@ -1,5 +1,7 @@
-import { defineConfig } from 'sanity';
+import { defineConfig, isDev } from 'sanity';
 import { deskTool } from 'sanity/desk';
+import { visionTool } from '@sanity/vision';
+
 import { schemaTypes } from './src/schemas/index';
 import { sanityId, sanityDataset } from './src/config/environment';
 
@@ -20,7 +22,14 @@ const config = defineConfig({
 							(listItem) => !['hero'].includes(listItem.getId() as string)
 						)
 					])
-		})
+		}),
+		...(isDev
+			? [
+					visionTool({
+						defaultDataset: sanityDataset
+					})
+				]
+			: [])
 	],
 	schema: {
 		types: schemaTypes

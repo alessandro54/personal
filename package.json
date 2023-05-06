@@ -48,6 +48,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@sanity/vision": "^3.10.0",
 		"sanity": "^3.10.0"
 	}
 }

@@ -26,27 +26,17 @@ const Location = defineType({
         Rule.required(),
         Rule.max(4)
       ],
-    }),
-    defineField({
-      title: 'Flag',
-      name: 'flag',
-      type: 'image',
-      description: 'Flag of the location',
-      options: {
-        accept: '.png'
-      },
     })
   ],
   preview: {
     select: {
       city: 'city',
       country: 'country',
-      flag: 'flag',
+      emoji: 'emoji',
     },
-    prepare({ city, country, flag }) {
+    prepare({ city, country, emoji }) {
       return {
-        title: `${city} - ${country}`,
-        subtitle: flag,
+        title: `${emoji} ${city} - ${country}`,
       }
     }
   }
