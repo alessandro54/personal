@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-	import '../../app.css';
+	import '$/app.css';
 	import { theme } from '../../lib/stores/theme';
 	import Nav from '../../components/shared/layout/nav/Nav.svelte';
 
