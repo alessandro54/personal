@@ -26,7 +26,8 @@ const config = defineConfig({
 		...(isDev
 			? [
 					visionTool({
-						defaultDataset: sanityDataset
+						defaultDataset: sanityDataset,
+						defaultApiVersion: '2023-05-03'
 					})
 				]
 			: [])

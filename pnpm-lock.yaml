@@ -1,6 +1,12 @@
 lockfileVersion: '6.0'
 
 dependencies:
+  '@sanity/client':
+    specifier: ^6.0.1
+    version: 6.0.1
+  '@sanity/image-url':
+    specifier: ^1.0.2
+    version: 1.0.2
   '@sanity/vision':
     specifier: ^3.10.0
     version: 3.10.0(@babel/runtime@7.21.5)(@codemirror/lint@6.2.1)(@codemirror/state@6.2.0)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.0.2)(codemirror@6.0.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(styled-components@5.3.10)
@@ -1123,6 +1129,17 @@ packages:
       rxjs: 7.8.1
     transitivePeerDependencies:
       - supports-color
+
+  /@sanity/client@6.0.1:
+    resolution: {integrity: sha512-q2Mi79ttJxoUjZG3LGlfIFoYfMUxra9tRaPbfmQRVJQ2I/TiVGvuE6yt38fgox796wpeZvYeuYH8L7Ms79IXYg==}
+    engines: {node: '>=14.18'}
+    dependencies:
+      '@sanity/eventsource': 5.0.0
+      get-it: 8.1.1
+      rxjs: 7.8.1
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
 
   /@sanity/color@2.2.5:
     resolution: {integrity: sha512-tTi22KoKuER3sldXYl4c1Dq2zU7tMLDkljFiaUKVkBbu4PBvRGCFw75kXZnD2b4Bsp6vin+7sI+AKdCKRhfRuw==}
