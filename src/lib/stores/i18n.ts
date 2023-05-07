@@ -4,7 +4,7 @@ import translations, { type Translation, Locale } from '../../locales/translatio
 
 type TranslationVars = { [key: string]: string };
 
-export const locale: Writable<Locale> = writable(Locale.EN);
+export const locale: Writable<Locale> = writable(Locale.RU);
 
 const translate = (locale: Locale, key: string, vars: TranslationVars): string => {
 	if (!key) throw new Error('no key provided to $t()');

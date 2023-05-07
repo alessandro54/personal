@@ -10,6 +10,9 @@ dependencies:
   '@sanity/vision':
     specifier: ^3.10.0
     version: 3.10.0(@babel/runtime@7.21.5)(@codemirror/lint@6.2.1)(@codemirror/state@6.2.0)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.0.2)(codemirror@6.0.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(styled-components@5.3.10)
+  groq:
+    specifier: ^3.10.0
+    version: 3.10.0
   sanity:
     specifier: ^3.10.0
     version: 3.10.0(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.10)
@@ -3433,6 +3436,11 @@ packages:
 
   /groq-js@0.2.0:
     resolution: {integrity: sha512-qJeuEgziddryH1ClsJvMoZM9aXNQbBViNZZrJwhHKr2wU8HGGM7uNWNVFglWXMX60MMaa2SClX3UohP76Ut68g==}
+    dev: false
+
+  /groq@3.10.0:
+    resolution: {integrity: sha512-e0svTundFQ9N1dI/kytsZKa3gcWSCZ/6+iVEYGLs49TGsYrc3rCGuxNR+AZA23pS6bpRuxGCnXf1+vU4vIIMQg==}
+    engines: {node: '>=14'}
     dev: false
 
   /gunzip-maybe@1.4.2:

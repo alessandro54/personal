@@ -1,7 +1,8 @@
-import { client } from '../sanity'
+import { client } from '../sanity';
+import groq from 'groq';
 
 const getExperiences = async () => {
-  return await client.fetch(`
+	return await client.fetch(groq`
     *[_type == "experience"]{
       name,
       company -> {
@@ -19,7 +20,7 @@ const getExperiences = async () => {
       startDate,
       endDate
     }
-  `)
-}
+  `);
+};
 
-export { getExperiences }
+export { getExperiences };
