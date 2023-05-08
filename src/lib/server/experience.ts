@@ -4,6 +4,7 @@ import groq from 'groq';
 const getExperiences = async () => {
 	return await client.fetch(groq`
     *[_type == "experience"]{
+      _id,
       name,
       company -> {
         name,
@@ -15,7 +16,6 @@ const getExperiences = async () => {
           emoji
         }
       },
-      achievements[],
       isRemote,
       startDate,
       endDate
@@ -23,4 +23,16 @@ const getExperiences = async () => {
   `);
 };
 
-export { getExperiences };
+const getExperience = async (id: string) => {
+	return await client.fetch(groq`
+    *[_type == "experience" && _id == "${id}"] {
+      name,
+      achievements[],
+      technologies[] -> {
+        name,
+        logo
+      }
+    }
+  `);
+};
+export { getExperiences, getExperience };

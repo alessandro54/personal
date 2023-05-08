@@ -5,7 +5,8 @@ export default {
 				'Меня зовут Алессандро, я инженер-программист из Перу.'
 		},
 		experience: {
-			title: 'Experiencia',
+			title: 'опыт',
+			subtitle: 'Опыт работы',
 			remote: 'удаленная'
 		},
 		date: {

@@ -25,6 +25,7 @@
 		"@threlte/preprocess": "^0.0.2",
 		"@threlte/rapier": "^0.5.0",
 		"@threlte/theatre": "^0.0.2",
+		"@types/lodash": "^4.14.194",
 		"@types/three": "^0.150.1",
 		"@typescript-eslint/eslint-plugin": "^5.45.0",
 		"@typescript-eslint/parser": "^5.45.0",
@@ -52,6 +53,7 @@
 		"@sanity/image-url": "^1.0.2",
 		"@sanity/vision": "^3.10.0",
 		"groq": "^3.10.0",
+		"lodash": "^4.17.21",
 		"sanity": "^3.10.0"
 	}
 }

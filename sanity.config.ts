@@ -9,6 +9,7 @@ const config = defineConfig({
 	name: 'portfolio',
 	projectId: sanityId,
 	dataset: sanityDataset,
+	basePath: '/admin',
 	plugins: [
 		deskTool({
 			structure: (S) =>

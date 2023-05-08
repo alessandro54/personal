@@ -13,6 +13,9 @@ dependencies:
   groq:
     specifier: ^3.10.0
     version: 3.10.0
+  lodash:
+    specifier: ^4.17.21
+    version: 4.17.21
   sanity:
     specifier: ^3.10.0
     version: 3.10.0(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.10)
@@ -51,6 +54,9 @@ devDependencies:
   '@threlte/theatre':
     specifier: ^0.0.2
     version: 0.0.2
+  '@types/lodash':
+    specifier: ^4.14.194
+    version: 4.14.194
   '@types/three':
     specifier: ^0.150.1
     version: 0.150.1
@@ -1565,7 +1571,6 @@ packages:
 
   /@types/lodash@4.14.194:
     resolution: {integrity: sha512-r22s9tAS7imvBt2lyHC9B8AGwWnXaYb1tY09oyLkXDs4vArpYJzw09nj8MLx5VfciBPGIb+ZwG0ssYnEPJxn/g==}
-    dev: false
 
   /@types/minimatch@5.1.2:
     resolution: {integrity: sha512-K0VQKziLUWkVKiRVrx4a40iPaxTUefQmjtkQofBkYRcoaaL/8rhwDWww9qWbrgicNOgnpIsMxyNIUM4+n6dUIA==}

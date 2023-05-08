@@ -16,6 +16,6 @@
 </script>
 
 <Nav />
-<main id="content" class="h-[calc(100%_-_64px)] overflow-y-auto">
+<main id="content" class="h-[calc(100%_-_65px)]">
 	<slot />
 </main>
