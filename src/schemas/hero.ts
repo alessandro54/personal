@@ -49,8 +49,7 @@ const Hero = defineType({
 			type: 'email',
 			description: 'Email of the hero',
 			validation: (Rule) => [
-				Rule.required(),
-				Rule.email().error('Please enter a valid email address')
+				Rule.required()
 			]
 		})
 	]

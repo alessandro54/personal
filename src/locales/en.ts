@@ -6,7 +6,7 @@ export default {
 		experience: {
 			title: 'Experience',
 			subtitle: 'Work Experience',
-      remote: 'Remote',
+			remote: 'Remote'
 		},
 		date: {
 			months: {
@@ -25,7 +25,7 @@ export default {
 					dec: 'Dec'
 				}
 			},
-      present: 'Present'
+			present: 'Present'
 		}
 	}
 };

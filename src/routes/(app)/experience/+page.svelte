@@ -1,24 +1,27 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 
+	import { t } from '$lib/stores/i18n';
 	import format from '$lib/helper/date/short';
 	import urlFor from '$lib/helper/img/urlFor';
-	import { t } from '$lib/stores/i18n';
+
 	import Modal from '$components/shared/Modal.svelte';
+	import Loading from '$components/shared/Loading.svelte';
 
 	export let data: PageData;
 
 	let showModal: boolean = false;
-	let promise = Promise.resolve();
+	let promise: Promise<any>;
 	const { experiences } = data;
 
-	const handleClick = (id: string) => {
-		fetch(`/api/experience/${id}`).then((res) => {
-			if (res.ok) {
-				console.log(res);
-				showModal = true;
-			}
-		});
+	const fetchExperience = async (id: string) => {
+		const res = await fetch(`/api/experience/${id}`);
+		const data = await res.json();
+		return data;
+	};
+
+	const handleClick = () => {
+		showModal = true;
 	};
 </script>
 
@@ -37,7 +40,10 @@
 				{@const endDate = experience.endDate}
 				<li
 					class="flex justify-between gap-x-6 p-5 cursor-pointer hover:bg-sky-100 dark:hover:bg-gray-100 rounded"
-					on:click={() => handleClick(experience._id)}
+					on:mouseenter={() => {
+						promise = fetchExperience(experience._id);
+					}}
+					on:click={() => handleClick()}
 				>
 					<div class="flex gap-x-4">
 						<img
@@ -88,10 +94,13 @@
 	</div>
 </section>
 
-<Modal bind:showModal>
-	<h2 slot="header">
-		modal
-		<small><em>adjective</em> mod·al \ˈmō-dəl\</small>
-	</h2>
-	{#await promise}{/await}
-</Modal>
+{#if promise != undefined}
+	<Modal bind:showModal>
+		{#await promise}
+			<Loading />
+		{:then result}
+			<h1 class="text-xl font-bold">{result.name}</h1>
+			<h1>{JSON.stringify(result)}</h1>
+		{/await}
+	</Modal>
+{/if}

@@ -1,6 +1,6 @@
 import { json, error } from '@sveltejs/kit';
 import _ from 'lodash';
-import type { RequestHandler } from '../$types';
+import type { RequestHandler } from './$types';
 
 import { getExperience } from '$lib/server/experience';
 
