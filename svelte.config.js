@@ -1,7 +1,4 @@
 import adapter from '@sveltejs/adapter-auto';
-import seqPreprocessor from 'svelte-sequential-preprocessor';
-import preprocess from 'svelte-preprocess'
-import { preprocessThrelte } from '@threlte/preprocess'
 import { vitePreprocess } from '@sveltejs/kit/vite';
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -10,7 +7,6 @@ const config = {
 	// for more information about preprocessors
 	preprocess: [
 		vitePreprocess(),
-		seqPreprocessor([preprocess(), preprocessThrelte()])
 	],
 
 	kit: {

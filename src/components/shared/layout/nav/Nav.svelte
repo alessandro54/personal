@@ -19,7 +19,9 @@
 	};
 </script>
 
-<nav class="bg-white dark:bg-gray-800 border-b border-gray-300 dark:border-gray-800">
+<nav
+	class="bg-white dark:bg-gray-800 border-b border-gray-300 dark:border-gray-800"
+>
 	<div class="mx-auto w-full px-2 sm:px-6 lg:px-8">
 		<div class="relative flex h-16 items-center justify-between">
 			<div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -41,7 +43,9 @@
 					{/if}
 				</button>
 			</div>
-			<div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+			<div
+				class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start"
+			>
 				<div class="flex flex-shrink-0 items-center">
 					<div class="block h-8 cursor-pointer">
 						<Canvas size={{ width: 30, height: 30 }}>

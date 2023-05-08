@@ -7,7 +7,7 @@ export default defineConfig({
 		include: ['src/**/*.{test,spec}.{js,ts}']
 	},
 	ssr: {
-		noExternal: ['three', 'troika-three-text']
+		noExternal: ['three']
 	},
 	server: {
 		fs: {
