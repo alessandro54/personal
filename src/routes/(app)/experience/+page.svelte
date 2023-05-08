@@ -1,23 +1,28 @@
 <script lang="ts">
+	import _ from 'lodash';
 	import type { PageData } from './$types';
 
 	import { t } from '$lib/stores/i18n';
+	import { experience as store } from '$lib/stores/experience';
 	import format from '$lib/helper/date/short';
 	import urlFor from '$lib/helper/img/urlFor';
 
 	import Modal from '$components/shared/Modal.svelte';
-	import Loading from '$components/shared/Loading.svelte';
 
 	export let data: PageData;
 
 	let showModal: boolean = false;
-	let promise: Promise<any>;
-	const { experiences } = data;
+	let experiences: Array<Experience> = [];
+	let selectedExperience: Experience | undefined;
 
-	const fetchExperience = async (id: string) => {
-		const res = await fetch(`/api/experience/${id}`);
-		const data = await res.json();
-		return data;
+	store.set(data.experiences);
+
+	store.subscribe((v) => {
+		experiences = v;
+	});
+
+	const setExperience = async (id: string) => {
+		selectedExperience = _(experiences).filter({ _id: id }).first();
 	};
 
 	const handleClick = () => {
@@ -40,9 +45,7 @@
 				{@const endDate = experience.endDate}
 				<li
 					class="flex justify-between gap-x-6 p-5 cursor-pointer hover:bg-sky-100 dark:hover:bg-gray-100 rounded"
-					on:mouseenter={() => {
-						promise = fetchExperience(experience._id);
-					}}
+					on:mouseenter={() => setExperience(experience._id)}
 					on:click={() => handleClick()}
 				>
 					<div class="flex gap-x-4">
@@ -94,13 +97,12 @@
 	</div>
 </section>
 
-{#if promise != undefined}
+{#if selectedExperience}
 	<Modal bind:showModal>
-		{#await promise}
-			<Loading />
-		{:then result}
-			<h1 class="text-xl font-bold">{result.name}</h1>
-			<h1>{JSON.stringify(result)}</h1>
-		{/await}
+		<header slot="header">
+			<h1 class="text-xl font-bold">
+				{selectedExperience.name}
+			</h1>
+		</header>
 	</Modal>
 {/if}

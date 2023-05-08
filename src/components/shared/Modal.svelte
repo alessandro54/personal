@@ -13,7 +13,7 @@
 	on:keydown={(e) => {
 		if (e.key === 'Escape') dialog.close();
 	}}
-	class="w-1/2 rounded-xl p-5"
+	class="w-full h-1/2 sm:w-1/2 rounded-xl p-5"
 >
 	<div on:click|stopPropagation on:keydown|stopPropagation>
 		<slot name="header" />

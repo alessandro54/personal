@@ -1,12 +1,22 @@
 import { derived, type Writable, writable } from 'svelte/store';
-
-import translations, { type Translation, Locale } from '../../locales/translations';
+import _ from 'lodash';
+import translations, {
+	type Translation,
+	Locale,
+	supportedLocales
+} from '../../locales/translations';
 
 type TranslationVars = { [key: string]: string };
 
-export const locale: Writable<Locale> = writable(Locale.EN);
+export const locale: Writable<Locale> = writable(
+	_.find(supportedLocales, { default: true })?.id
+);
 
-const translate = (locale: Locale, key: string, vars: TranslationVars): string => {
+const translate = (
+	locale: Locale,
+	key: string,
+	vars: TranslationVars
+): string => {
 	if (!key) throw new Error('no key provided to $t()');
 	if (!locale) throw new Error(`no translation for key "${key}"`);
 

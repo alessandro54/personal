@@ -16,6 +16,11 @@ const getExperiences = async () => {
           emoji
         }
       },
+      achievements[],
+      technologies[] -> {
+        name,
+        logo
+      },
       isRemote,
       startDate,
       endDate
