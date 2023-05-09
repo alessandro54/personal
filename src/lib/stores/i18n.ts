@@ -1,5 +1,5 @@
-import { derived, type Writable, writable } from 'svelte/store';
 import _ from 'lodash';
+import { derived, type Writable, writable } from 'svelte/store';
 import translations, {
 	type Translation,
 	Locale,

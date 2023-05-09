@@ -16,6 +16,6 @@
 </script>
 
 <Nav />
-<main id="content" class="h-[calc(100%_-_65px)]">
+<main id="content" class="h-[calc(100%_-_65px)] bg-slate-100">
 	<slot />
 </main>

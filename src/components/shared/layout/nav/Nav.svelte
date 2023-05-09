@@ -47,8 +47,8 @@
 				class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start"
 			>
 				<div class="flex flex-shrink-0 items-center">
-					<div class="block h-8 cursor-pointer">
-						<Canvas size={{ width: 30, height: 30 }}>
+					<div class="block h-8 cursor-pointer w-[30px]	">
+						<Canvas >
 							<Logo />
 						</Canvas>
 					</div>

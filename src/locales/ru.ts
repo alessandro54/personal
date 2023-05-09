@@ -7,7 +7,8 @@ export default {
 		experience: {
 			title: 'опыт',
 			subtitle: 'Опыт работы',
-			remote: 'удаленная'
+			remote: 'удаленная',
+			at: 'в'
 		},
 		date: {
 			months: {
