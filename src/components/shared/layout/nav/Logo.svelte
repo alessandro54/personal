@@ -17,9 +17,7 @@
 <T.DirectionalLight position.y={15} position.z={10} />
 <T.Mesh
 	interactive
-	rotation.x={rotation}
-	rotation.y={rotation}
-	rotation.z={rotation}
+	rotation={[rotation, rotation, rotation]}
 	on:pointerenter={() => {
 		material.color.set('#6366f1');
 	}}

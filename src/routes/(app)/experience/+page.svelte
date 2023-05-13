@@ -86,7 +86,7 @@
 					<section aria-labelledby="selected">
 						<h2 class="sr-only" id="selected">Selected experience</h2>
 						<div class="h-full overflow-hidden rounded-lg bg-white shadow">
-							<div class="p-6">
+							<div class="p-6 h-full relative">
 								<!-- Your content -->
 								{#if selectedExperience}
 									<h3 class="text-xl font-bold">
@@ -97,11 +97,9 @@
 										>
 									</h3>
 								{:else}
-									<div class="w-full h-full">
-										<Canvas>
-											<Scene />
-										</Canvas>
-									</div>
+								<Canvas>
+									<Scene />
+								</Canvas>
 								{/if}
 							</div>
 						</div>
