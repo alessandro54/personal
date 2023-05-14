@@ -1,8 +1,10 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import '$/app.css';
-	import { theme } from '../../lib/stores/theme';
-	import Nav from '../../components/shared/layout/nav/Nav.svelte';
+	import { theme } from '$lib/stores/theme';
+	import { webGL } from '$lib/stores/webGL'
+	import supportsWebGL from '$lib/helper/supportsWebGL';
+	import Nav from '$components/shared/layout/nav/Nav.svelte';
 
 	const store = theme();
 
@@ -12,6 +14,7 @@
 			const newColorScheme = event.matches ? 'dark' : 'light';
 			store.set(newColorScheme);
 		});
+		webGL.set(supportsWebGL(window.document));
 	});
 </script>
 

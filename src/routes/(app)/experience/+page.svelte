@@ -1,22 +1,22 @@
 <script lang="ts">
 	import _ from 'lodash';
+	import { Canvas } from '@threlte/core';
 	import type { PageData } from './$types';
 
 	import { t } from '$lib/stores/i18n';
 	import { experience as store } from '$lib/stores/experience';
+	import { webGL as webGLSupported } from '$/lib/stores/webGL';
 	import urlFor from '$lib/helper/img/urlFor';
 
 	import Modal from '$components/shared/Modal.svelte';
 	import ExperienceCard from '$components/experience/ExperienceCard.svelte';
 	import Scene from '$components/experience/Scene.svelte';
-	import { Canvas } from '@threlte/core';
 
 	export let data: PageData;
 
 	let showModal: boolean = false;
 	let experiences: Array<Experience> = [];
 	let selectedExperience: Experience | undefined;
-
 	let innerWidth: number = 0;
 
 	store.set(data.experiences);
@@ -50,10 +50,10 @@
 	<div class="h-full grid place-items-center">
 		<div class="mx-auto w-full px-4 sm:px-6 2xl:max-w-[75%] lg:px-8">
 			<div
-				class="grid grid-cols-1 items-start gap-4 lg:grid-cols-3 lg:gap-8 min-h-[calc(100vh_*_0.55)]"
+				class="grid grid-cols-1 items-start gap-4 lg:grid-cols-3 lg:gap-8 max-h-[300px]"
 			>
 				<!-- Left column -->
-				<div class="grid grid-cols-1 gap-4 lg:col-span-2 h-full">
+				<div class="grid grid-cols-1 gap-4 lg:col-span-2">
 					<section aria-labelledby="experiences">
 						<h2 class="sr-only" id="experiences">Experiences</h2>
 						<div class="overflow-hidden rounded-lg bg-white shadow h-full">
@@ -82,11 +82,11 @@
 				</div>
 
 				<!-- Right column -->
-				<div class="lg:grid hidden grid-cols-1 gap-4 h-full">
+				<div class="lg:grid hidden grid-cols-1 gap-4">
 					<section aria-labelledby="selected">
 						<h2 class="sr-only" id="selected">Selected experience</h2>
-						<div class="h-full overflow-hidden rounded-lg bg-white shadow">
-							<div class="p-6 h-full relative">
+						<div class="overflow-hidden rounded-lg bg-white shadow">
+							<div class="p-6 h-full">
 								<!-- Your content -->
 								{#if selectedExperience}
 									<h3 class="text-xl font-bold">
@@ -96,10 +96,16 @@
 											{selectedExperience.company.name}</span
 										>
 									</h3>
+								{:else if $webGLSupported}
+									<div class="relative animate-fade-in">
+										<Canvas>
+											<Scene />
+										</Canvas>
+									</div>
 								{:else}
-								<Canvas>
-									<Scene />
-								</Canvas>
+									<div>
+										<p class="text-sm text-gray-500 fade">Without WebGL</p>
+									</div>
 								{/if}
 							</div>
 						</div>

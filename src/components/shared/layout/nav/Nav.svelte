@@ -1,6 +1,9 @@
 <script lang="ts">
-	import { page } from '$app/stores';
 	import { Canvas } from '@threlte/core';
+
+	import { page } from '$app/stores';
+	import { webGL as webGLSupported } from '$/lib/stores/webGL';
+
 	import Logo from './Logo.svelte';
 	import Bars3Icon from '../../icons/Bars3Icon.svelte';
 	import XMarkIcon from '../../icons/XMarkIcon.svelte';
@@ -47,10 +50,12 @@
 				class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start"
 			>
 				<div class="flex flex-shrink-0 items-center">
-					<div class="block h-8 cursor-pointer w-[30px]	">
-						<Canvas >
-							<Logo />
-						</Canvas>
+					<div class="block h-8 cursor-pointer w-[30px]">
+						{#if $webGLSupported}
+							<Canvas>
+								<Logo />
+							</Canvas>
+						{/if}
 					</div>
 				</div>
 				<div class="hidden sm:ml-6 sm:block">

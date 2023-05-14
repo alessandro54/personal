@@ -2,7 +2,7 @@ import { json, error } from '@sveltejs/kit';
 import _ from 'lodash';
 import type { RequestHandler } from './$types';
 
-import { getExperience } from '$lib/server/experience';
+import { getExperience } from '$root/src/lib/queries/experience';
 
 export const GET = (async ({ params }) => {
 	const experience = await getExperience(params.slug);

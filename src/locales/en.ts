@@ -7,7 +7,10 @@ export default {
 			title: 'Experience',
 			subtitle: 'Work Experience',
 			remote: 'Remote',
-			at: 'at'
+			at: 'at',
+			arrowSection: {
+				indication: 'Hover on an experience to see its details'
+			}
 		},
 		date: {
 			months: {
