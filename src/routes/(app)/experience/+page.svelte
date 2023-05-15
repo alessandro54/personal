@@ -48,18 +48,17 @@
 		</p>
 	</header>
 	<div class="h-full grid place-items-center">
-		<div class="mx-auto w-full px-4 sm:px-6 2xl:max-w-[75%] lg:px-8">
+		<div class="grid place-items-center mx-auto w-full px-4 sm:px-6 2xl:max-w-[75%] h-3/4 lg:px-8">
 			<div
 				class="grid grid-cols-1 items-start gap-4 lg:grid-cols-3 lg:gap-8 max-h-[300px]"
 			>
 				<!-- Left column -->
 				<div class="grid grid-cols-1 gap-4 lg:col-span-2">
 					<section aria-labelledby="experiences">
-						<h2 class="sr-only" id="experiences">Experiences</h2>
 						<div class="overflow-hidden rounded-lg bg-white shadow h-full">
 							<div class="p-6 h-full">
 								<ul class="w-full h-full flex flex-col justify-center">
-									{#each experiences as experience, i}
+									{#each experiences as experience}
 										<!-- svelte-ignore a11y-click-events-have-key-events -->
 										<li
 											class="w-full flex justify-between gap-x-6 p-5 cursor-pointer hover:bg-sky-100 dark:hover:bg-gray-100 rounded"

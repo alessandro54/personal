@@ -19,6 +19,7 @@ const config = {
 			'$': './src',
 			'$lib': './src/lib',
 			'$components': './src/components',
+			'$icons': './src/assets/icons'
 		}
 	},
 };

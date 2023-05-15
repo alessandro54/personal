@@ -13,7 +13,7 @@
 			Chumpitaz
 		</h2>
 		<p>
-			{$t('home.intro', { name: 'tu vieja' })}
+			{$t('home.intro')}
 		</p>
 	</div>
 </section>

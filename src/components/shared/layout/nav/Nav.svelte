@@ -5,8 +5,9 @@
 	import { webGL as webGLSupported } from '$/lib/stores/webGL';
 
 	import Logo from './Logo.svelte';
-	import Bars3Icon from '../../icons/Bars3Icon.svelte';
-	import XMarkIcon from '../../icons/XMarkIcon.svelte';
+	import Toggle from './Toggle.svelte';
+	import Bars3Icon from '$icons/Bars3Icon.svelte';
+	import XMarkIcon from '$icons/XMarkIcon.svelte';
 
 	const buttons = [
 		{ to: '/experience', label: 'Experience' },
@@ -46,30 +47,39 @@
 					{/if}
 				</button>
 			</div>
+			<!-- Nav -->
 			<div
-				class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start"
+				class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-between"
 			>
-				<div class="flex flex-shrink-0 items-center">
-					<div class="block h-8 cursor-pointer w-[30px]">
-						{#if $webGLSupported}
-							<Canvas>
-								<Logo />
-							</Canvas>
-						{/if}
+				<!-- Left Nav -->
+				<div class="flex items-center">
+					<div class="grid place-items-center">
+						<div class="block h-8 cursor-pointer w-[30px]">
+							{#if $webGLSupported}
+								<Canvas>
+									<Logo />
+								</Canvas>
+							{/if}
+						</div>
+					</div>
+					<div class="hidden sm:ml-6 sm:block">
+						<div class="flex space-x-4 items-center">
+							{#each buttons as button}
+								<a
+									href={button.to}
+									class={isActive(button.to)
+										? 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium'
+										: 'text-black dark:text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'}
+									aria-current="page">{button.label}</a
+								>
+							{/each}
+						</div>
 					</div>
 				</div>
-				<div class="hidden sm:ml-6 sm:block">
-					<div class="flex space-x-4 items-center">
-						{#each buttons as button}
-							<a
-								href={button.to}
-								class={isActive(button.to)
-									? 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium'
-									: 'text-black dark:text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'}
-								aria-current="page">{button.label}</a
-							>
-						{/each}
-					</div>
+				<!-- Right Nav -->
+				<div class="items-center hidden sm:flex">
+					<!-- Enabled: "bg-indigo-600", Not Enabled: "bg-gray-200" -->
+					<Toggle />
 				</div>
 			</div>
 		</div>

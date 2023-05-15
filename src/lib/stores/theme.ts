@@ -1,34 +1,43 @@
-import { writable, type Writable, type Updater } from 'svelte/store';
+import { writable, type Writable } from 'svelte/store';
 
 export type Theme = 'light' | 'dark' | 'auto';
 
 export interface ThemeStore {
 	subscribe: Writable<Theme>['subscribe'];
-	set: (theme: Theme) => void;
-	update: (updater: Updater<Theme>) => void;
+	set: (value: Theme) => void;
 }
 
-export const theme = (): ThemeStore => {
-	const store: Writable<Theme> = writable('auto');
+const createTheme = (): ThemeStore | undefined => {
+	if (typeof window === 'undefined') return undefined; // ? Guard condition
+
+	const initialValue = (localStorage.getItem('theme') as Theme) ?? 'auto';
+
+	const { subscribe, set }: Writable<Theme> = writable(initialValue);
+
+	const setDarkTheme = (): void => {
+		document.documentElement.classList.add('dark');
+	};
+
+	const setLightTheme = (): void => {
+		document.documentElement.classList.remove('dark');
+	};
 
 	const setTheme = (theme: Theme): void => {
-		document.documentElement.classList.toggle('dark', theme === 'dark');
+		const prefersDark = window.matchMedia(
+			'(prefers-color-scheme: dark)'
+		).matches;
+		if (theme === 'auto') prefersDark ? setDarkTheme() : setLightTheme();
+		else theme === 'dark' ? setDarkTheme() : setLightTheme();
 		localStorage.setItem('theme', theme);
-		store.set(theme);
+		set(theme);
 	};
 
-	if (typeof window !== 'undefined') {
-		const savedTheme = localStorage.getItem('theme') as Theme | null;
-		if (savedTheme) {
-			setTheme(savedTheme);
-		} else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-			setTheme('dark');
-		}
-	}
+	setTheme(initialValue);
 
 	return {
-		subscribe: store.subscribe,
-		set: setTheme,
-		update: store.update
+		subscribe,
+		set: (value: Theme) => setTheme(value)
 	};
 };
+
+export const theme = createTheme();
