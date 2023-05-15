@@ -23,6 +23,6 @@
 	</script>
 </svelte:head>
 <Nav />
-<main id="content" class="h-[calc(100%_-_65px)] bg-slate-100">
+<main id="content" class="h-[calc(100%_-_65px)]">
 	<slot />
 </main>

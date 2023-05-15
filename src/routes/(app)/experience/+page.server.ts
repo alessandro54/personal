@@ -1,4 +1,4 @@
-import { getExperiences } from '$root/src/lib/queries/experience';
+import { getExperiences } from '$root/src/lib/server/experience';
 import type { PageServerLoad } from './$types';
 
 export const load = (async () => {
