@@ -13,7 +13,7 @@
 	$: material = new MeshStandardMaterial({ color: '#38bdf8' });
 	interactivity();
 </script>
-
+<T.PerspectiveCamera makeDefault position={[0, 0, 10]} fov={40}/>
 <T.DirectionalLight position.y={15} position.z={10} />
 <T.Mesh
 	interactive

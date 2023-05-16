@@ -7,7 +7,6 @@
 
 	let state: Theme;
 	let states: Array<Theme> = ['light', 'auto', 'dark'];
-
 	onMount(() => {
 		state = $theme!;
 	});
@@ -21,17 +20,6 @@
 		state = states[((index % 3) + 3) % 3]; // Hardcoded to 3 because of states
 		theme?.set(state);
 	};
-
-	$: currentTranslate = () => {
-		switch (state) {
-			case 'light':
-				return '0';
-			case 'auto':
-				return '3';
-			case 'dark':
-				return '6';
-		}
-	};
 </script>
 
 <button
@@ -41,31 +29,38 @@
 	aria-checked="mixed"
 	on:click={handleClick}
 >
-	<!-- Enabled: "translate-x-5", Not Enabled: "translate-x-0" -->
-	<span
-		class={`translate-x-${currentTranslate()} pointer-events-none relative inline-block h-5 w-5 transform rounded-full bg-white dark:bg-cyan-700 dark:text-white shadow ring-0 transition duration-200 ease-in-out`}
-	>
-		{#if state === 'light'}
+	{#if state === 'light'}
+		<span
+			class="translate-x-0 pointer-events-none relative inline-block h-5 w-5 transform rounded-full bg-white dark:bg-cyan-700 dark:text-white shadow ring-0 transition duration-200 ease-in-out"
+		>
 			<span
 				class="opacity-100 duration-100 absolute inset-0 flex h-full w-full items-center justify-center transition-opacity p-1"
 				aria-hidden="true"
 			>
 				<SunIcon />
 			</span>
-		{:else if state === 'auto'}
+		</span>
+	{:else if state === 'auto'}
+		<span
+			class="translate-x-3 pointer-events-none relative inline-block h-5 w-5 transform rounded-full bg-white dark:bg-cyan-700 dark:text-white shadow ring-0 transition duration-200 ease-in-out"
+		>
 			<span
 				class="opacity-100 duration-100 ease-out absolute inset-0 flex h-full w-full items-center justify-center transition-opacity p-1"
 				aria-hidden="true"
 			>
 				<EyeIcon />
 			</span>
-		{:else if state === 'dark'}
+		</span>
+	{:else if state === 'dark'}
+		<span
+			class="translate-x-6 pointer-events-none relative inline-block h-5 w-5 transform rounded-full bg-white dark:bg-cyan-700 dark:text-white shadow ring-0 transition duration-200 ease-in-out"
+		>
 			<span
 				class="opacity-100 duration-100 ease-out absolute inset-0 flex h-full w-full items-center justify-center transition-opacity p-1"
 				aria-hidden="true"
 			>
 				<MoonIcon />
 			</span>
-		{/if}
-	</span>
+		</span>
+	{/if}
 </button>
