@@ -27,3 +27,11 @@ type Technology = {
   description: string;
   logo: string;
 }
+
+type Hero = {
+  firstName: string;
+  lastName: string;
+  role: string;
+  image: string;
+  email: string;
+}

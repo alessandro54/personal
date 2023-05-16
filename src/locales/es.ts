@@ -1,3 +1,4 @@
+import { error } from '@sveltejs/kit';
 export default {
 	es: {
 		home: {
@@ -26,6 +27,13 @@ export default {
 					nov: 'Nov',
 					dec: 'Dic'
 				}
+			}
+		},
+		error: {
+			404: {
+				title: 'Página no encontrada',
+				description: 'La página que estás buscando no existe',
+				goBack: 'Volver a la página principal'
 			}
 		}
 	}

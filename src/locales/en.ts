@@ -30,6 +30,13 @@ export default {
 				}
 			},
 			present: 'Present'
+		},
+		error: {
+			404: {
+				title: 'Page not found',
+				description: 'The page you are looking for does not exist',
+				goBack: 'Go back to home'
+			}
 		}
 	}
 };
